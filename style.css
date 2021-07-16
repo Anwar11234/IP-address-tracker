@@ -1,0 +1,161 @@
+:root{ 
+    --very-dark-gray: hsl(0, 0%, 17%);
+    --dark-gray: hsl(0, 0%, 59%);
+}
+
+body{ 
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.125rem;
+    background-color: #333;
+}
+
+*,
+*::before,
+*::after{ 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{ 
+    text-align: center;
+    background-image: url('images/pattern-bg.png');
+    background-size: cover;
+    background-position: center;
+    padding: 2rem;
+    height: 40vh;
+    position: relative;
+    z-index: 1;
+}
+
+.main h1{ 
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.main form{ 
+    max-width: 40rem;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.ip-address{ 
+    display: inline-block;
+    margin-block: 2rem;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: none;
+    padding-block: 1.25rem;
+    padding-inline: 1rem;
+    padding-inline-start: 1.25rem;
+    flex: 1;
+    outline: none;
+}
+
+.ip-address::placeholder{ 
+    font-size: 0.85rem;
+    color: var(--dark-gray);
+    font-weight: 400;
+}
+
+.main form button{ 
+    background-color: var(--very-dark-gray);
+    border: none;
+    position: absolute;
+    border-radius: 0  1em  1em 0;
+    right: 0;
+    top: 2rem;
+    bottom: 2rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 300ms ;
+}
+
+.main form button:hover{ 
+    background-color: hsl(0, 0%, 27%);
+}
+
+:focus{ 
+    outline: 5px solid hsl(0, 21%, 78%) !important;
+}
+
+.results{ 
+    background-color: white;
+    padding-block: 1rem;
+    border-radius: 1rem;
+    max-width: 60rem;
+    margin: auto;
+}
+
+.result:not(:last-child){ 
+    margin-bottom: 1rem;
+}
+
+.result .attribute{ 
+    color: var(--dark-gray);
+    font-weight: 500;
+    font-size: 0.65em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.result .value{ 
+    margin-top: 0.25rem;
+}
+
+#map{ 
+    height: 60vh;
+    position: relative;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media(min-width:870px){ 
+    .main{ 
+        height: 38vh;
+    }
+    #map{ 
+        height: 62vh;
+    }
+    .main h1{ 
+        font-size: 2rem;
+    }
+    .ip-address::placeholder{ 
+        font-size: 1.2rem;
+    }
+    .results{ 
+        text-align: left;
+        padding-inline: 1rem;
+        padding-block: 1rem;
+        display: grid;
+        grid-template-columns: repeat(4 , 1fr);
+        grid-gap: 1rem;
+    }
+    .result{ 
+        padding: 1rem;
+        padding-inline-end: 2rem;
+        position: relative;
+    }
+    .result:not(:last-child)::after{ 
+        content: '';
+        position: absolute;
+        right: -0.5rem;
+        top: 1.5rem;
+        width: 1px;
+        height: 60%;
+        background-color: hsla(0, 0%, 59% , .25);
+    }
+    .result .attribute{ 
+        font-size: 0.75em;
+    }
+    .result .value{ 
+        font-size: 1.5rem;
+    }
+}
