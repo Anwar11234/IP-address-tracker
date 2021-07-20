@@ -92,6 +92,10 @@ body{
     margin: auto;
 }
 
+.results:empty{ 
+    display: none;
+}
+
 .result:not(:last-child){ 
     margin-bottom: 1rem;
 }
